@@ -18,21 +18,25 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   </head>
   <body
-    style="text-align: center; background-color: rgb(20, 20, 20); margin: 125px"
+    style="
+      text-align: center;
+      background-color: rgb(20, 20, 20);
+      margin: 75px 125px 75px 125px;
+    "
   >
-    <a href="#" id="mode" style="color: white">Dark</a>
+    <a id="mode" style="color: white">Dark</a>
     <div
       style="
         position: relative;
         width: 100%;
         height: 0;
-        padding-top: 141.4286%;
+        padding-top: 140%;
         padding-bottom: 0;
         box-shadow: 0 2px 8px 0 rgba(63, 69, 81, 0.16);
         margin-top: 1.6em;
         margin-bottom: 0.9em;
         overflow: hidden;
-        border-radius: 8px;
+        border-radius: 0;
         will-change: transform;
       "
     >
@@ -46,6 +50,7 @@
           top: 0;
           left: 0;
           border: none;
+          border-radius: 0;
           padding: 0;
           margin: 0;
         "
@@ -57,17 +62,28 @@
     </div>
 
     <script>
-      let modeBtn = document.querySelector("#mode")
-      var iframe = document.querySelector("#myIframe")
-
-      modeBtn.addEventListener("click", () => {
-        if (modeBtn.textContent === "Dark") {
-          modeBtn.textContent = "Light"
-          iframe.src = "https://www.canva.com/design/DAFQ6y5YrUU/view?embed"
-        } else {
-          modeBtn.textContent = "Dark"
-          iframe.src = "https://www.canva.com/design/DAFS08aKHbU/view?embed"
-        }
+      window.addEventListener("load", function () {
+        let modeBtn = document.querySelector("#mode")
+        modeBtn.addEventListener(
+          "click",
+          () => {
+            let iframe = document.querySelector("#myIframe")
+            if (modeBtn.textContent === "Dark") {
+              modeBtn.textContent = "Light"
+              iframe.setAttribute(
+                "src",
+                "https://www.canva.com/design/DAFS08aKHbU/view?embed"
+              )
+            } else {
+              modeBtn.textContent = "Dark"
+              iframe.setAttribute(
+                "src",
+                "https://www.canva.com/design/DAFQ6y5YrUU/view?embed"
+              )
+            }
+          },
+          { passive: true }
+        )
       })
     </script>
   </body>
