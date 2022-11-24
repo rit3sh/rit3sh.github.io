@@ -52,7 +52,7 @@
       width="50px"
     />
     <div
-      id="main"
+      id="iframe-wrapper"
       style="
         position: relative;
         width: 100%;
@@ -86,7 +86,6 @@
     </div>
     <script type="text/javascript">
       window.addEventListener("load", function () {
-        console.log(window.passiveSupported)
         const iframe = document.querySelector("#myIframe")
         const themeIcon = document.querySelector("#mode")
         let theme = "light"
