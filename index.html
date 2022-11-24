@@ -20,6 +20,7 @@
   <body
     style="text-align: center; background-color: rgb(20, 20, 20); margin: 125px"
   >
+    <a href="#" id="mode" style="color: white">Dark</a>
     <div
       style="
         position: relative;
@@ -36,6 +37,7 @@
       "
     >
       <iframe
+        id="myIframe"
         loading="lazy"
         style="
           position: absolute;
@@ -53,5 +55,20 @@
       >
       </iframe>
     </div>
+
+    <script>
+      let modeBtn = document.querySelector("#mode")
+      var iframe = document.querySelector("#myIframe")
+
+      modeBtn.addEventListener("click", () => {
+        if (modeBtn.textContent === "Dark") {
+          modeBtn.textContent = "Light"
+          iframe.src = "https://www.canva.com/design/DAFQ6y5YrUU/view?embed"
+        } else {
+          modeBtn.textContent = "Dark"
+          iframe.src = "https://www.canva.com/design/DAFS08aKHbU/view?embed"
+        }
+      })
+    </script>
   </body>
 </html>
